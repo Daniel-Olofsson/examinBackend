@@ -1,0 +1,18 @@
+.header {
+    background-color: aqua;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    border-style:groove;
+    width: 100%;
+    gap: 33%;
+    height: 100px;
+    justify-content: center;
+    font-size: x-large;
+    
+
+    
+}
+ul{
+    padding: 0;
+margin: 0;}
