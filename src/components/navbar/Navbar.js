@@ -1,12 +1,13 @@
 import * as React from "react";
-import { HashRouter, NavLink, Route, Routes } from 'react-router-dom'
+import { NavLink, Route, Routes } from 'react-router-dom'
 import About from "../../about";
 import Graphql from "../../graphql";
 import Home from "../../Home"
 import "./navbar.css"
-function navbar() {
+import MoviePage from "../MoviePage";
+function navbar(props) {
   return (
-    <HashRouter>
+   <div>
         <ul>
           <div className="header">
             <li><NavLink to="/">Home</NavLink></li>
@@ -14,13 +15,9 @@ function navbar() {
             <li><NavLink to="/about">About</NavLink></li>
           </div>
         </ul>
-        <Routes>
-            <Route exact path="/" element={<Home/>}/>
-            <Route path="/graphql" element={<Graphql/>}/>
-            <Route path="/about" element={<About/>}/>
-        </Routes>
-    </HashRouter>
+        
     
+    </div>
   )
 }
 
