@@ -1,13 +1,27 @@
 import React from 'react'
-import {useParams, useEffect ,useState} from "react"
+
 
 
 function MoviePage(props) {
 
+  
+
   return (
     <div>
-		<div>
-			<h1>{props.movie.title}</h1>
+		<div className='card-singel'>
+      <div>
+        <img className='image-singel' src={"https://image.tmdb.org/t/p/w500" + props.movie.backdrop_path} alt={props.movie.path}/>
+        <div class="card-title">
+          <h1 class="font-weight-bold">{props.movie.title}</h1>
+        </div>
+        
+        
+        <h3  class="card-text">{props.movie.overview}</h3>
+        
+        <h5 class="font-weight-light">Language: {props.movie.original_language}</h5>
+        <h5 class="font-weight-light">Release date: {props.movie.release_date}</h5>
+      </div>
+			
 		</div>
     </div>
   )

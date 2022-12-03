@@ -9,22 +9,27 @@ import MoviePage from './components/MoviePage';
 function App() {
 
 
-  const api_key = `dd553bd18da52db5b93a11c3221826dc`;
-
-  const [data,setData] = useState([]);
-  const [searchValue, setSearchValue] = useState('a')
   
-  const [movie,setMovie] = useState([]);
+
+  const [data,setData] = useState([]); 
+  const [searchValue, setSearchValue] = useState('a');
+  const [movie,setMovie] = useState([]); 
+  const [latestView, setLatest] =useState([])
   
   
   const placeMovie = (index) =>{
+    let dataRecently = latestView;
+    dataRecently.push(data[index]);
+    setLatest(dataRecently)
     setMovie(data[index])
-
+    console.log(latestView)
+    
 
   }
   
   const getDataReq = async () => {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=dd553bd18da52db5b93a11c3221826dc&query=${searchValue}`;
+    const api_key = `dd553bd18da52db5b93a11c3221826dc`;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchValue}`;
     
     const response = await fetch(url);
     const responseJson = await response.json();
@@ -45,7 +50,7 @@ function App() {
         <Navbar />
       
       <Routes>
-            <Route exact path="/" element={<Home searchValue={searchValue} data={data} setSearchValue={setSearchValue} placeMovie={placeMovie}/>}/>
+            <Route exact path="/" element={<Home searchValue={searchValue} data={data} setSearchValue={setSearchValue} placeMovie={placeMovie} latestView={latestView}/>}/>
             <Route path="/graphql" element={<Graphql/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/MoviePage" element={<MoviePage  movie={movie}/>}/>

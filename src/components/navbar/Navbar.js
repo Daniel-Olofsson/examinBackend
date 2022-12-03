@@ -1,10 +1,7 @@
 import * as React from "react";
-import { NavLink, Route, Routes } from 'react-router-dom'
-import About from "../../about";
-import Graphql from "../../graphql";
-import Home from "../../Home"
+import { NavLink } from 'react-router-dom'
 import "./navbar.css"
-import MoviePage from "../MoviePage";
+
 function navbar(props) {
   return (
    <div>
